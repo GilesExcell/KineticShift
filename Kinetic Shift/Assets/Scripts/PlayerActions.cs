@@ -14,7 +14,7 @@ public class PlayerActions : PlayerActionSet {
 		Left = CreatePlayerAction( "Move Left" );
 		Right = CreatePlayerAction( "Move Right" );
 		Jump = CreatePlayerAction( "Jump" );
-		Shift = CreatePlayerAction("Kinetic Shift"):
+		Shift = CreatePlayerAction ("Kinetic Shift");
 		Move = CreateOneAxisPlayerAction (Left, Right);
 	}
 
