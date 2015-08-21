@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if (playerActions.Jump.WasPressed)
 		{
-			Jump();
+			Jump(playerActions.Shift.IsPressed);
 		}
 
 		Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
 	}
 
-	void Jump() {
+	void Jump(bool shift) {
 
 	};
 
