@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour {
 		Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
 	}
 
-	void Jump(bool shift) {
+	virtual void Jump(bool shift) {
 
 	};
 
-	void Move(float x, bool shift) {
+	virtual void Move(float x, bool shift) {
 
 	};
 }
