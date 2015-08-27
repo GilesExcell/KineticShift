@@ -3,8 +3,6 @@ using System.Collections;
 using InControl;
 
 public class BallActions : PlayerActionSet {
-	public PlayerAction RollLeft;
-	public PlayerAction RollRight;
 	public PlayerAction Left;
 	public PlayerAction Right;
 	public PlayerAction Up;
@@ -22,11 +20,8 @@ public class BallActions : PlayerActionSet {
 		Down = CreatePlayerAction( "Move Down" );
 		Jump = CreatePlayerAction( "Jump" );
 		Shift = CreatePlayerAction ("Kinetic Shift");
-		RollLeft = CreatePlayerAction ("Roll Left");
-		RollRight = CreatePlayerAction ("Roll Right");
 		Move = CreateOneAxisPlayerAction (Left, Right);
 		JumpDirection = CreateTwoAxisPlayerAction (Left, Right, Down, Up);
-
 	}
 
 	public static BallActions CreateWithDefaultBindings()
@@ -35,9 +30,6 @@ public class BallActions : PlayerActionSet {
 
 		playerActions.Jump.AddDefaultBinding( Key.Space );
 		playerActions.Jump.AddDefaultBinding( InputControlType.Action1 );
-
-		playerActions.RollLeft.AddDefaultBinding (InputControlType.LeftTrigger);
-		playerActions.RollRight.AddDefaultBinding (InputControlType.RightTrigger);
 		
 		playerActions.Left.AddDefaultBinding( Key.LeftArrow );
 		playerActions.Right.AddDefaultBinding( Key.RightArrow );
