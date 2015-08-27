@@ -32,7 +32,6 @@ public class CircleController : MonoBehaviour {
 	void FixedUpdate () {
 
 		GetComponent<Rigidbody2D>().AddTorque (move * maxTorque);
-		Debug.Log (currentCollisions);
 		if (currentCollisions == 0) {
 			grounded = false;
 		} else {
