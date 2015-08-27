@@ -25,7 +25,7 @@ public class CircleController : MonoBehaviour {
 			Jump(playerActions.JumpDirection.Value, playerActions.Shift.IsPressed);
 		}
 		
-		Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
+		Move (playerActions.RollLeft.Value, playerActions.RollRight.Value, playerActions.Shift.IsPressed);
 	}
 	
 	// Update is called once per frame
@@ -40,8 +40,8 @@ public class CircleController : MonoBehaviour {
 		}
 	}
 
-	void Move(float x, bool shift) {
-		move = -x;
+	void Move(float left, float right, bool shift) {
+		move = left - right;
 	}
 
 	void Jump(Vector2 direction, bool shift) {
