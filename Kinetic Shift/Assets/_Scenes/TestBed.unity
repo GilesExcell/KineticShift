@@ -187,6 +187,7 @@ GameObject:
   - 231: {fileID: 257103648}
   - 231: {fileID: 257103654}
   - 234: {fileID: 257103653}
+  - 234: {fileID: 257103655}
   m_Layer: 8
   m_Name: SpringRight
   m_TagString: Untagged
@@ -289,8 +290,8 @@ SliderJoint2D:
   m_Enabled: 1
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 386916759}
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: .5, y: 0}
+  m_Anchor: {x: 0, y: .300000012}
+  m_ConnectedAnchor: {x: .5, y: .300000012}
   serializedVersion: 2
   m_Angle: 180
   m_UseMotor: 0
@@ -315,6 +316,27 @@ SpringJoint2D:
   m_Distance: .00499999989
   m_DampingRatio: 1
   m_Frequency: 8
+--- !u!234 &257103655
+SliderJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257103646}
+  m_Enabled: 1
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 386916759}
+  m_Anchor: {x: 0, y: -.300000012}
+  m_ConnectedAnchor: {x: .5, y: -.300000012}
+  serializedVersion: 2
+  m_Angle: 180
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 1
+  m_TranslationLimits:
+    m_LowerTranslation: .100000001
+    m_UpperTranslation: 1
 --- !u!1 &386916758
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +363,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 386916758}
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -423,7 +445,7 @@ MonoBehaviour:
   lowFrequency: 6
   highFrequency: 12
   lowDistance: .100000001
-  springDistance: 1.5
+  springDistance: 1
 --- !u!1 &572747089
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +535,7 @@ GameObject:
   - 231: {fileID: 749893976}
   - 231: {fileID: 749893982}
   - 234: {fileID: 749893981}
+  - 234: {fileID: 749893983}
   m_Layer: 8
   m_Name: SpringLeft
   m_TagString: Untagged
@@ -615,8 +638,8 @@ SliderJoint2D:
   m_Enabled: 1
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 386916759}
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -.5, y: 0}
+  m_Anchor: {x: 0, y: .300000012}
+  m_ConnectedAnchor: {x: -.5, y: .300000012}
   serializedVersion: 2
   m_Angle: 0
   m_UseMotor: 0
@@ -641,6 +664,27 @@ SpringJoint2D:
   m_Distance: .00499999989
   m_DampingRatio: 1
   m_Frequency: 8
+--- !u!234 &749893983
+SliderJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 749893974}
+  m_Enabled: 1
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 386916759}
+  m_Anchor: {x: 0, y: -.300000012}
+  m_ConnectedAnchor: {x: -.5, y: -.300000012}
+  serializedVersion: 2
+  m_Angle: 0
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 1
+  m_TranslationLimits:
+    m_LowerTranslation: .100000001
+    m_UpperTranslation: 1
 --- !u!1 &1158763232
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +895,7 @@ GameObject:
   - 231: {fileID: 2051470018}
   - 231: {fileID: 2051470024}
   - 234: {fileID: 2051470023}
+  - 234: {fileID: 2051470025}
   m_Layer: 8
   m_Name: SpringDown
   m_TagString: Untagged
@@ -953,8 +998,8 @@ SliderJoint2D:
   m_Enabled: 1
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 386916759}
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -.5}
+  m_Anchor: {x: .300000012, y: 0}
+  m_ConnectedAnchor: {x: .300000012, y: -.5}
   serializedVersion: 2
   m_Angle: 90
   m_UseMotor: 0
@@ -979,6 +1024,27 @@ SpringJoint2D:
   m_Distance: .00499999989
   m_DampingRatio: 1
   m_Frequency: 8
+--- !u!234 &2051470025
+SliderJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051470016}
+  m_Enabled: 1
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 386916759}
+  m_Anchor: {x: -.300000012, y: 0}
+  m_ConnectedAnchor: {x: -.300000012, y: -.5}
+  serializedVersion: 2
+  m_Angle: 90
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 1
+  m_TranslationLimits:
+    m_LowerTranslation: .100000001
+    m_UpperTranslation: 1
 --- !u!1 &2074769697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1208,7 @@ GameObject:
   - 231: {fileID: 2096677556}
   - 231: {fileID: 2096677562}
   - 234: {fileID: 2096677561}
+  - 234: {fileID: 2096677563}
   m_Layer: 8
   m_Name: SpringUp
   m_TagString: Untagged
@@ -1244,8 +1311,8 @@ SliderJoint2D:
   m_Enabled: 1
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 386916759}
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: .5}
+  m_Anchor: {x: .300000012, y: 0}
+  m_ConnectedAnchor: {x: .300000012, y: .5}
   serializedVersion: 2
   m_Angle: 270
   m_UseMotor: 0
@@ -1270,3 +1337,24 @@ SpringJoint2D:
   m_Distance: .00499999989
   m_DampingRatio: 1
   m_Frequency: 8
+--- !u!234 &2096677563
+SliderJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096677554}
+  m_Enabled: 1
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 386916759}
+  m_Anchor: {x: -.300000012, y: 0}
+  m_ConnectedAnchor: {x: -.300000012, y: .5}
+  serializedVersion: 2
+  m_Angle: 270
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 1
+  m_TranslationLimits:
+    m_LowerTranslation: .100000001
+    m_UpperTranslation: 1

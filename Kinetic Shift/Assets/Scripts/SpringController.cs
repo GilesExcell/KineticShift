@@ -18,6 +18,12 @@ public class SpringController : MonoBehaviour {
 	SpringJoint2D[] springJointsDown;
 	SpringJoint2D[] springJointsLeft;
 	SpringJoint2D[] springJointsRight;
+
+	float mass;
+	float springUpMass;
+	float springDownMass;
+	float springLeftMass;
+	float springRightMass;
 	
 	// Use this for initialization
 	void Start () {
@@ -28,6 +34,12 @@ public class SpringController : MonoBehaviour {
 		springJointsDown = springDown.GetComponents<SpringJoint2D> ();
 		springJointsLeft = springLeft.GetComponents<SpringJoint2D> ();
 		springJointsRight = springRight.GetComponents<SpringJoint2D> ();
+		
+		mass = gameObject.GetComponent<Rigidbody2D> ().mass;
+		springUpMass = springUp.GetComponent<Rigidbody2D> ().mass;
+		springDownMass = springDown.GetComponent<Rigidbody2D> ().mass;
+		springLeftMass = springLeft.GetComponent<Rigidbody2D> ().mass;
+		springRightMass = springRight.GetComponent<Rigidbody2D> ().mass;
 	}
 	
 	// Update is called once per frame
@@ -55,8 +67,20 @@ public class SpringController : MonoBehaviour {
 		}
 	}
 
-	void fixedUpdate() {
+	void FixedUpdate() {
+		Vector2 centerOfMass = gameObject.transform.position * mass
+							+ springUp.transform.position * springUpMass
+							+ springDown.transform.position * springDownMass
+							+ springLeft.transform.position * springLeftMass
+							+ springRight.transform.position * springRightMass;
+		centerOfMass = centerOfMass / (mass + springUpMass + springDownMass + springLeftMass + springRightMass);
+		centerOfMass -= (Vector2)gameObject.transform.position;
+		gameObject.GetComponent<Rigidbody2D> ().centerOfMass = centerOfMass;
+	}
 
+	void OnDrawGizmos() {
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawIcon (transform.position + (Vector3)gameObject.GetComponent<Rigidbody2D> ().centerOfMass, "CoM");
 	}
 
 	void ResetForInput(){
