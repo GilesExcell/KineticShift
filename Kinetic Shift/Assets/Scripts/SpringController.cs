@@ -4,6 +4,13 @@ using InControl;
 
 public class SpringController : MonoBehaviour {
 	SpringActions playerActions;
+	public GameObject Spring1;
+	public GameObject Spring2;
+	public GameObject Spring3;
+	public GameObject Spring4;
+	public float lowFrequency;
+	public float highFrequency;
+	public float springDistance;
 	
 	// Use this for initialization
 	void Start () {
@@ -12,39 +19,64 @@ public class SpringController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playerActions.Up.WasPressed)
+		ResetForInput();
+		if (playerActions.Up.IsPressed)
 		{
-			Up(playerActions.Shift.IsPressed);
+			Up();
 		}
-		if (playerActions.Down.WasPressed)
+		if (playerActions.Down.IsPressed)
 		{
-			Down(playerActions.Shift.IsPressed);
+			Down();
 		}
-		if (playerActions.Left.WasPressed)
+		if (playerActions.Left.IsPressed)
 		{
-			Left(playerActions.Shift.IsPressed);
+			Left();
 		}
-		if (playerActions.Right.WasPressed)
+		if (playerActions.Right.IsPressed)
 		{
-			Right(playerActions.Shift.IsPressed);
+			Right();
+		}
+		if (playerActions.Shift.IsPressed)
+		{
+			Shift();
 		}
 
 
+	}
+
+	void ResetForInput(){
+		Spring1.GetComponent<SpringJoint2D> ().distance = 0.05f;
+		Spring2.GetComponent<SpringJoint2D> ().distance = 0.05f;
+		Spring3.GetComponent<SpringJoint2D> ().distance = 0.05f;
+		Spring4.GetComponent<SpringJoint2D> ().distance = 0.05f;
+		Spring1.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
+		Spring2.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
+		Spring3.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
+		Spring4.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
+
+	}
+
+	void Up() {
+		Spring3.GetComponent<SpringJoint2D> ().distance = springDistance;
 	}
 	
-	void Up(bool shift) {
-		// pop top panel
-	}
-	
-	void Down(bool shift) {
-		// pop down panel
+	void Down() {
+		Spring1.GetComponent<SpringJoint2D> ().distance = springDistance;
 	}
 
-	void Left(bool shift) {
-		// pop left panel
+	void Left() {
+		Spring4.GetComponent<SpringJoint2D> ().distance = springDistance;
 	}
 
-	void Right(bool shift) {
-		// pop right panel
+	void Right() {
+		Spring2.GetComponent<SpringJoint2D> ().distance = springDistance;
+	}
+
+	void Shift() {
+		
+		Spring1.GetComponent<SpringJoint2D> ().frequency = highFrequency;
+		Spring2.GetComponent<SpringJoint2D> ().frequency = highFrequency;
+		Spring3.GetComponent<SpringJoint2D> ().frequency = highFrequency;
+		Spring4.GetComponent<SpringJoint2D> ().frequency = highFrequency;
 	}
 }
