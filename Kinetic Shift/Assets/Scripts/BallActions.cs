@@ -9,6 +9,7 @@ public class BallActions : PlayerActionSet {
 	public PlayerAction Down;
 	public PlayerAction Jump;
 	public PlayerAction Shift;
+	public PlayerAction Brake;
 	public PlayerOneAxisAction Move;
 	public PlayerTwoAxisAction JumpDirection;
 
@@ -20,6 +21,7 @@ public class BallActions : PlayerActionSet {
 		Down = CreatePlayerAction( "Move Down" );
 		Jump = CreatePlayerAction( "Jump" );
 		Shift = CreatePlayerAction ("Kinetic Shift");
+		Brake = CreatePlayerAction ("Brake");
 		Move = CreateOneAxisPlayerAction (Left, Right);
 		JumpDirection = CreateTwoAxisPlayerAction (Left, Right, Down, Up);
 	}
@@ -30,6 +32,9 @@ public class BallActions : PlayerActionSet {
 
 		playerActions.Jump.AddDefaultBinding( Key.Space );
 		playerActions.Jump.AddDefaultBinding( InputControlType.Action1 );
+
+		playerActions.Brake.AddDefaultBinding (Key.LeftShift);
+		playerActions.Brake.AddDefaultBinding (InputControlType.Action2); 
 		
 		playerActions.Left.AddDefaultBinding( Key.LeftArrow );
 		playerActions.Right.AddDefaultBinding( Key.RightArrow );
