@@ -11,18 +11,18 @@ public class CircleController : MonoBehaviour {
 
 	int currentCollisions;
 
-	PlayerActions playerActions;
+	BallActions playerActions;
 	
 	// Use this for initialization
 	void Start () {
-		playerActions = PlayerActions.CreateWithDefaultBindings();
+		playerActions = BallActions.CreateWithDefaultBindings();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (playerActions.Jump.WasPressed)
 		{
-			Jump(playerActions.Shift.IsPressed);
+			Jump(playerActions.JumpDirection.Value, playerActions.Shift.IsPressed);
 		}
 		
 		Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
@@ -44,9 +44,9 @@ public class CircleController : MonoBehaviour {
 		move = -x;
 	}
 
-	void Jump(bool shift) {
+	void Jump(Vector2 direction, bool shift) {
 		if (grounded)
-			GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpForce, ForceMode2D.Impulse);
+			GetComponent<Rigidbody2D> ().AddForce (direction * jumpForce, ForceMode2D.Impulse);
 	}
 
 	void OnCollisionEnter2D(){
