@@ -4,17 +4,30 @@ using InControl;
 
 public class SpringController : MonoBehaviour {
 	SpringActions playerActions;
-	public GameObject Spring1;
-	public GameObject Spring2;
-	public GameObject Spring3;
-	public GameObject Spring4;
+	public GameObject springUp;
+	public GameObject springDown;
+	public GameObject springLeft;
+	public GameObject springRight;
 	public float lowFrequency;
 	public float highFrequency;
+	public float lowDistance;
 	public float springDistance;
+
+	SpringJoint2D[] springJointsAll;
+	SpringJoint2D[] springJointsUp;
+	SpringJoint2D[] springJointsDown;
+	SpringJoint2D[] springJointsLeft;
+	SpringJoint2D[] springJointsRight;
 	
 	// Use this for initialization
 	void Start () {
 		playerActions = SpringActions.CreateWithDefaultBindings();
+		
+		springJointsAll = gameObject.GetComponentsInChildren<SpringJoint2D> ();
+		springJointsUp = springUp.GetComponents<SpringJoint2D> ();
+		springJointsDown = springDown.GetComponents<SpringJoint2D> ();
+		springJointsLeft = springLeft.GetComponents<SpringJoint2D> ();
+		springJointsRight = springRight.GetComponents<SpringJoint2D> ();
 	}
 	
 	// Update is called once per frame
@@ -40,43 +53,46 @@ public class SpringController : MonoBehaviour {
 		{
 			Shift();
 		}
+	}
 
+	void fixedUpdate() {
 
 	}
 
 	void ResetForInput(){
-		Spring1.GetComponent<SpringJoint2D> ().distance = 0.05f;
-		Spring2.GetComponent<SpringJoint2D> ().distance = 0.05f;
-		Spring3.GetComponent<SpringJoint2D> ().distance = 0.05f;
-		Spring4.GetComponent<SpringJoint2D> ().distance = 0.05f;
-		Spring1.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
-		Spring2.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
-		Spring3.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
-		Spring4.GetComponent<SpringJoint2D> ().frequency = lowFrequency;
-
+		foreach (SpringJoint2D spring in springJointsAll) {
+			spring.distance = lowDistance;
+			spring.frequency = lowFrequency;
+		}
 	}
 
 	void Up() {
-		Spring3.GetComponent<SpringJoint2D> ().distance = springDistance;
+		foreach (SpringJoint2D spring in springJointsUp) {
+			spring.distance = springDistance;
+		}
 	}
 	
 	void Down() {
-		Spring1.GetComponent<SpringJoint2D> ().distance = springDistance;
+		foreach (SpringJoint2D spring in springJointsDown) {
+			spring.distance = springDistance;
+		}
 	}
 
 	void Left() {
-		Spring4.GetComponent<SpringJoint2D> ().distance = springDistance;
+		foreach (SpringJoint2D spring in springJointsLeft) {
+			spring.distance = springDistance;
+		}
 	}
 
 	void Right() {
-		Spring2.GetComponent<SpringJoint2D> ().distance = springDistance;
+		foreach (SpringJoint2D spring in springJointsRight) {
+			spring.distance = springDistance;
+		}
 	}
 
 	void Shift() {
-		
-		Spring1.GetComponent<SpringJoint2D> ().frequency = highFrequency;
-		Spring2.GetComponent<SpringJoint2D> ().frequency = highFrequency;
-		Spring3.GetComponent<SpringJoint2D> ().frequency = highFrequency;
-		Spring4.GetComponent<SpringJoint2D> ().frequency = highFrequency;
+		foreach (SpringJoint2D spring in springJointsAll) {
+			spring.frequency = highFrequency;
+		}
 	}
 }
