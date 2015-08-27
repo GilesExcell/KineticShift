@@ -26,7 +26,7 @@ public class BoxController : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
 		
 		if (Input.GetKey(KeyCode.LeftArrow)) {
-			if (Input.GetKey(KeyCode.LeftShift && kineticEnergy > 1)) {
+			if (Input.GetKey(KeyCode.LeftShift) && kineticEnergy > 1) {
 				transform.Translate(Vector2.left * Time.deltaTime * keBoost);
 				kineticEnergy -= 1;
 			}
@@ -37,7 +37,7 @@ public class BoxController : MonoBehaviour {
 			}
 		}
 		
-		if (Input.GetKey(KeyCode.RightArrow)) {
+		if (Input.GetKey(KeyCode.RightArrow) && kineticEnergy > 1) {
 			if (Input.GetKey(KeyCode.LeftShift)) {
 				transform.Translate(Vector2.right * Time.deltaTime * keBoost);
 				kineticEnergy -= 1;
