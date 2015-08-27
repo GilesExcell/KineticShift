@@ -5,8 +5,9 @@ public class BoxController : MonoBehaviour {
 	
 	int accel = 10;
 	int jumpHeight = 400;
-	int kineticEnergy = 500;
+	int kineticEnergy = 50;
 	int keBoost = 20;
+	bool canJump;
 
 	// Use this for initialization
 	void Start () {
@@ -25,13 +26,14 @@ public class BoxController : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
 		
 		if (Input.GetKey(KeyCode.LeftArrow)) {
-			if (Input.GetKey(KeyCode.LeftShift)) {
+			if (Input.GetKey(KeyCode.LeftShift && kineticEnergy > 1)) {
 				transform.Translate(Vector2.left * Time.deltaTime * keBoost);
 				kineticEnergy -= 1;
 			}
 			else
 			{
 				transform.Translate(Vector2.left * Time.deltaTime * accel);
+				kineticEnergy += 3;
 			}
 		}
 		
@@ -43,6 +45,7 @@ public class BoxController : MonoBehaviour {
 			else
 			{
 				transform.Translate(Vector2.right * Time.deltaTime * accel);
+				kineticEnergy += 3;
 			}
 		}
 
@@ -52,7 +55,7 @@ public class BoxController : MonoBehaviour {
 			Jump();
 		}
 
-		//transform.Translate (Vector2.down * Time.deltaTime * gravity);
+
 	}
 
 	void Jump () {
@@ -64,4 +67,5 @@ public class BoxController : MonoBehaviour {
 			GetComponent<Rigidbody>().AddForce(Vector2.up * jumpHeight);
 		}
 	}
+	
 }
