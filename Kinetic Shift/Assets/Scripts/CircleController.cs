@@ -24,8 +24,11 @@ public class CircleController : MonoBehaviour {
 		{
 			Jump(playerActions.JumpDirection.Value, playerActions.Shift.IsPressed);
 		}
-		
+		if (playerActions.Brake.IsPressed){
+			Brake();
+		}else{
 		Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
+		}
 	}
 	
 	// Update is called once per frame
@@ -41,6 +44,11 @@ public class CircleController : MonoBehaviour {
 
 	void Move(float x, bool shift) {
 		move = -x;
+	}
+
+	void Brake(){
+		//GetComponent<Rigidbody2D> ().AddTorque (-10);
+
 	}
 
 	void Jump(Vector2 direction, bool shift) {
