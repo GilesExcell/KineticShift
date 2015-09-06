@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTorque: 1
   jumpForce: 10
+  jumpTime: .100000001
 --- !u!212 &21296152
 SpriteRenderer:
   m_ObjectHideFlags: 1
