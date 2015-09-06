@@ -18,9 +18,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentTime += Time.deltaTime;
-
-		// Display Score
-
 	}
 
 	void AddPoints(int points) {

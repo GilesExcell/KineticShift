@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CircleController : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class CircleController : MonoBehaviour {
 	public float jumpForce = 1f;
 	float move;
 	bool grounded = false;
+	
+	public Text KEText;
+	int kineticEnergy;
 
 	int currentCollisions;
 
@@ -16,6 +20,7 @@ public class CircleController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerActions = BallActions.CreateWithDefaultBindings();
+		kineticEnergy = 0;
 	}
 	
 	// Update is called once per frame
@@ -27,7 +32,7 @@ public class CircleController : MonoBehaviour {
 		if (playerActions.Brake.IsPressed){
 			Brake();
 		}else{
-		Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
+			Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
 		}
 	}
 	
@@ -45,6 +50,14 @@ public class CircleController : MonoBehaviour {
 
 	void Move(float x, bool shift) {
 		move = -x;
+
+		if (shift) {
+			kineticEnergy -= 1;
+			SetEnergySlider();
+		} else {
+			kineticEnergy += 1;
+			SetEnergySlider();
+		}
 	}
 
 	void Brake(){
@@ -53,8 +66,16 @@ public class CircleController : MonoBehaviour {
 	}
 
 	void Jump(Vector2 direction, bool shift) {
-		if (grounded)
+		if (grounded){
 			GetComponent<Rigidbody2D> ().AddForce (direction * jumpForce, ForceMode2D.Impulse);
+			
+			if (shift) {
+			kineticEnergy -= 1;
+			} else {
+			kineticEnergy += 1;
+			}
+			//SetEnergySlider();
+		}
 	}
 
 	void OnCollisionEnter2D(){
@@ -63,6 +84,16 @@ public class CircleController : MonoBehaviour {
 
 	void OnCollisionExit2D(){
 		currentCollisions--;
+	}
+
+	void SetEnergySlider (){
+		KEText.text = "Kinetic Energy: " + kineticEnergy.ToString();
+
+		if (kineticEnergy < 0){
+			kineticEnergy = 0;
+		} else if (kineticEnergy > 100){
+			kineticEnergy = 100;
+		}
 	}
 
 }
