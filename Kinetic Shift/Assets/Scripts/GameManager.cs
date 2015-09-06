@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentTime += Time.deltaTime;
-
-		Debug.Log(score);
-		Debug.Log(currentTime);
 	}
 
 	void AddPoints(int points) {
