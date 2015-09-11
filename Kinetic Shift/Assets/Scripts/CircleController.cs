@@ -54,7 +54,6 @@ public class CircleController : MonoBehaviour {
 		} else {
 			grounded = true;
 		}
-		currentCollisions = 0;
 
 		if (grounded && jump > 0) {
 			jump = 0.0f;
@@ -85,13 +84,16 @@ public class CircleController : MonoBehaviour {
 	}
 
 	void Jump(Vector2 dir) {
-		if (dir != Vector2.zero) {
-			jump = jumpTime;
-			direction = dir.normalized;
-		}
+		jump = jumpTime;
+		direction = dir.normalized;
 	}
 
-	void OnCollisionStay2D(){
+	void OnCollisionEnter2D(){
 		currentCollisions++;
 	}
+
+	void OnCollisionExit2D(){
+		currentCollisions--;
+	}
+
 }
