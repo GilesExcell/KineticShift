@@ -98,7 +98,6 @@ public class CircleController : MonoBehaviour {
 	void OnCollisionStay2D(){
 		currentCollisions++;
 	}
-<<<<<<< HEAD
 
 	void OnCollisionExit2D(){
 		currentCollisions--;
@@ -108,6 +107,4 @@ public class CircleController : MonoBehaviour {
 		energySlider.value = storedEnergy;
 	}
 
-=======
->>>>>>> master
 }
