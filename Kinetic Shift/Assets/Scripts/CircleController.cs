@@ -58,6 +58,7 @@ public class CircleController : MonoBehaviour {
 		} else {
 			grounded = true;
 		}
+		currentCollisions = 0;
 
 		if (grounded && jump > 0) {
 			jump = 0.0f;
@@ -88,13 +89,16 @@ public class CircleController : MonoBehaviour {
 	}
 
 	void Jump(Vector2 dir) {
-		jump = jumpTime;
-		direction = dir.normalized;
+		if (dir != Vector2.zero) {
+			jump = jumpTime;
+			direction = dir.normalized;
+		}
 	}
 
-	void OnCollisionEnter2D(){
+	void OnCollisionStay2D(){
 		currentCollisions++;
 	}
+<<<<<<< HEAD
 
 	void OnCollisionExit2D(){
 		currentCollisions--;
@@ -104,4 +108,6 @@ public class CircleController : MonoBehaviour {
 		energySlider.value = storedEnergy;
 	}
 
+=======
+>>>>>>> master
 }
