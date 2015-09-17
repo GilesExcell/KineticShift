@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PickupController : MonoBehaviour {
 	public int points = 1;
+    public bool isWin;
 	public GameManager gameManager = null;
 
 	// Use this for initialization
@@ -19,8 +20,16 @@ public class PickupController : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Player") {
-			gameManager.SendMessage("AddPoints", points);
-			Destroy(gameObject);
+            if (isWin)
+            {
+                Debug.Log("You win!");
+                Destroy(gameObject);
+            }
+            else
+            {
+                gameManager.SendMessage("AddPoints", points);
+                Destroy(gameObject);
+            }
 		}
 	}
 }
