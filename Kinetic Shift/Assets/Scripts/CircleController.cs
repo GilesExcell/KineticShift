@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +9,7 @@ public class CircleController : MonoBehaviour {
 	public float jumpForce = 5f;
 	public float jumpTime = 0.1f;
 	public float drainRate = 0.5f;
+	public Slider energySlider;
 	float move;
 	bool grounded = false;
 	float jump = 0.0f;
@@ -25,6 +27,7 @@ public class CircleController : MonoBehaviour {
 	void Start () {
 		body = GetComponent<Rigidbody2D> ();
 		playerActions = BallActions.CreateWithDefaultBindings();
+		setEnergyBar ();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +41,7 @@ public class CircleController : MonoBehaviour {
 		}else{
 			Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
 		}
+		setEnergyBar ();
 	}
 	
 	// Update is called once per frame
@@ -94,4 +98,13 @@ public class CircleController : MonoBehaviour {
 	void OnCollisionStay2D(){
 		currentCollisions++;
 	}
+
+	void OnCollisionExit2D(){
+		currentCollisions--;
+	}
+
+	void setEnergyBar(){
+		energySlider.value = storedEnergy;
+	}
+
 }
