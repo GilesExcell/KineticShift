@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class PickupController : MonoBehaviour {
+
 	public int points = 1;
 	public GameManager gameManager = null;
+	public bool isGoal;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,11 @@ public class PickupController : MonoBehaviour {
 		if (other.tag == "Player") {
 			gameManager.SendMessage("AddPoints", points);
 			Destroy(gameObject);
+		}
+
+		if (isGoal){
+			//yield WaitForSeconds(1);
+			Application.LoadLevel(1);
 		}
 	}
 }

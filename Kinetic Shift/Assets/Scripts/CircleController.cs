@@ -21,6 +21,7 @@ public class CircleController : MonoBehaviour {
 	void Start () {
 		playerActions = BallActions.CreateWithDefaultBindings();
 		kineticEnergy = 0;
+		SetEnergy();
 	}
 	
 	// Update is called once per frame
@@ -50,13 +51,14 @@ public class CircleController : MonoBehaviour {
 
 	void Move(float x, bool shift) {
 		move = -x;
+		Debug.Log("Move: " + move);
 
 		if (shift) {
-			kineticEnergy -= 1;
-			SetEnergySlider();
-		} else {
+			kineticEnergy -= 10;
+			SetEnergy();
+		} else if (move != 0){
 			kineticEnergy += 1;
-			SetEnergySlider();
+			SetEnergy();
 		}
 	}
 
@@ -70,9 +72,10 @@ public class CircleController : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().AddForce (direction * jumpForce, ForceMode2D.Impulse);
 			
 			if (shift) {
-			kineticEnergy -= 1;
+				kineticEnergy -= 100;
+				SetEnergy();
 			} else {
-			kineticEnergy += 1;
+				kineticEnergy += 1;
 			}
 			//SetEnergySlider();
 		}
@@ -86,14 +89,15 @@ public class CircleController : MonoBehaviour {
 		currentCollisions--;
 	}
 
-	void SetEnergySlider (){
-		KEText.text = "Kinetic Energy: " + kineticEnergy.ToString();
+	void SetEnergy (){
 
 		if (kineticEnergy < 0){
 			kineticEnergy = 0;
-		} else if (kineticEnergy > 100){
-			kineticEnergy = 100;
+		} else if (kineticEnergy > 1000){
+			kineticEnergy = 1000;
 		}
+
+		KEText.text = "Kinetic Energy: " + kineticEnergy.ToString();
 	}
 
 }
