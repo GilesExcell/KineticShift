@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CircleController : MonoBehaviour {
 
@@ -12,12 +13,18 @@ public class CircleController : MonoBehaviour {
 	public Slider energySlider;
 	float move;
 	bool grounded = false;
+
+	
+	public Text KEText;
+	int kineticEnergy;
+
 	float jump = 0.0f;
 	Vector2 direction;
 	Rigidbody2D body;
 	float shiftImpulse;
 	public float storedEnergy { get; private set; }
 	Vector2 lastVelocity = Vector2.zero;
+
 
 	int currentCollisions;
 
@@ -27,7 +34,12 @@ public class CircleController : MonoBehaviour {
 	void Start () {
 		body = GetComponent<Rigidbody2D> ();
 		playerActions = BallActions.CreateWithDefaultBindings();
+
+		kineticEnergy = 0;
+		SetEnergy();
+
 		setEnergyBar ();
+
 	}
 	
 	// Update is called once per frame
@@ -81,6 +93,15 @@ public class CircleController : MonoBehaviour {
 
 	void Move(float x, bool shift) {
 		move = -x;
+		Debug.Log("Move: " + move);
+
+		if (shift) {
+			kineticEnergy -= 10;
+			SetEnergy();
+		} else if (move != 0){
+			kineticEnergy += 1;
+			SetEnergy();
+		}
 	}
 
 	void Brake(){
@@ -88,10 +109,26 @@ public class CircleController : MonoBehaviour {
 
 	}
 
+
+	void Jump(Vector2 direction, bool shift) {
+		if (grounded) {
+			GetComponent<Rigidbody2D> ().AddForce (direction * jumpForce, ForceMode2D.Impulse);
+			
+			if (shift) {
+				kineticEnergy -= 100;
+				SetEnergy ();
+			} else {
+				kineticEnergy += 1;
+			}
+			//SetEnergySlider();
+		}
+	}
+
 	void Jump(Vector2 dir) {
 		if (dir != Vector2.zero) {
 			jump = jumpTime;
 			direction = dir.normalized;
+
 		}
 	}
 
@@ -103,8 +140,21 @@ public class CircleController : MonoBehaviour {
 		currentCollisions--;
 	}
 
+
+	void SetEnergy (){
+
+		if (kineticEnergy < 0) {
+			kineticEnergy = 0;
+		} else if (kineticEnergy > 1000) {
+			kineticEnergy = 1000;
+		}
+
+		KEText.text = "Kinetic Energy: " + kineticEnergy.ToString ();
+	}
+
 	void setEnergyBar(){
 		energySlider.value = storedEnergy;
+
 	}
 
 }
