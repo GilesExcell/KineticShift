@@ -12,7 +12,11 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		score = 0;
 		currentTime = 0;
+<<<<<<< HEAD
 		SetScoreText();
+=======
+		setScoreText ();
+>>>>>>> master
 	}
 	
 	// Update is called once per frame
@@ -22,13 +26,23 @@ public class GameManager : MonoBehaviour {
 
 	void AddPoints(int points) {
 		score += points;
+<<<<<<< HEAD
 		SetScoreText();
+=======
+		setScoreText ();
+>>>>>>> master
 	}
 
 	void RemovePoints(int points) {
 		score -= points;
 		if (score < 0)
 			score = 0;
+
+		setScoreText ();
+	}
+
+	void setScoreText(){
+		scoreText.text = "Score: " + score.ToString ();
 	}
 
 	void SetScoreText (){
