@@ -12,11 +12,8 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		score = 0;
 		currentTime = 0;
-<<<<<<< HEAD
+
 		SetScoreText();
-=======
-		setScoreText ();
->>>>>>> master
 	}
 	
 	// Update is called once per frame
@@ -24,28 +21,24 @@ public class GameManager : MonoBehaviour {
 		currentTime += Time.deltaTime;
 	}
 
+	// Add points to the player's score
 	void AddPoints(int points) {
 		score += points;
-<<<<<<< HEAD
 		SetScoreText();
-=======
-		setScoreText ();
->>>>>>> master
+
 	}
 
+	// Remove points from the player's score
 	void RemovePoints(int points) {
 		score -= points;
 		if (score < 0)
 			score = 0;
 
-		setScoreText ();
+		SetScoreText ();
 	}
 
-	void setScoreText(){
+	// Set the player's score as the text to display
+	void SetScoreText(){
 		scoreText.text = "Score: " + score.ToString ();
-	}
-
-	void SetScoreText (){
-		scoreText.text = "Score: " + score.ToString();
 	}
 }
