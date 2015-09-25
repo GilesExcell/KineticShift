@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour {
 		float distance = (transform.position - target.position).magnitude;
 
 
-		transform.position = Vector2.Lerp (transform.position, target.position, Time.deltaTime);
-
+		//transform.position = Vector2.Lerp (transform.position, target.position, distance * Time.deltaTime);
+		transform.position = target.position;
 	}
 }
