@@ -68,6 +68,11 @@ public class CircleController : MonoBehaviour {
 
 			if (jump > 0) {
 				jump = 0.0f;
+
+				storedEnergy += body.mass * (body.velocity).sqrMagnitude / 2.0f;
+				body.velocity = Vector2.zero;
+				lastVelocity = Vector2.zero;
+
 				shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
 				storedEnergy = 0;
 				body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);
