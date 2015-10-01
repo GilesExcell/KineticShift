@@ -13,6 +13,8 @@ public class CircleController : MonoBehaviour {
 	public float drainRate = 0.5f;
 	public float storedEnergy { get; private set; }
 
+	public bool airShift = false;
+
 	float move;
 	bool grounded = false;
 
@@ -65,12 +67,14 @@ public class CircleController : MonoBehaviour {
 		if (grounded) {
 			body.AddForce (move * maxGroundForce * Vector2.left);
 
+			// shifting
 			if (jump > 0) {
 				jump = 0.0f;
 
 				storedEnergy += body.mass * (body.velocity).sqrMagnitude / 2.0f;
 				body.velocity = Vector2.zero;
 				lastVelocity = Vector2.zero;
+
 				if (storedEnergy != 0) {
 					shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
 					storedEnergy = 0;
@@ -79,6 +83,21 @@ public class CircleController : MonoBehaviour {
 			}
 		} else {
 			body.AddForce (move * maxAirForce * Vector2.left);
+
+			if (airShift && jump > 0) {
+					jump = 0.0f;
+					
+					storedEnergy += body.mass * (body.velocity).sqrMagnitude / 2.0f;
+					body.velocity = Vector2.zero;
+					lastVelocity = Vector2.zero;
+					
+					if (storedEnergy != 0) {
+						shiftImpulse = Mathf.Sqrt(storedEnergy);
+						storedEnergy = 0;
+					}
+					body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);
+				}
+
 		}
 
 		jump -= Time.deltaTime;
