@@ -50,9 +50,8 @@ public class CircleController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (body.velocity.sqrMagnitude < lastVelocity.sqrMagnitude) {
-			storedEnergy += body.mass * (body.velocity - lastVelocity).sqrMagnitude / 2.0f;
+			storedEnergy += body.mass * (lastVelocity.sqrMagnitude - body.velocity.sqrMagnitude) / 2.0f;
 		}
-		Debug.Log (storedEnergy, gameObject);
 
 
 		body.AddTorque (move * maxTorque);
@@ -72,9 +71,10 @@ public class CircleController : MonoBehaviour {
 				storedEnergy += body.mass * (body.velocity).sqrMagnitude / 2.0f;
 				body.velocity = Vector2.zero;
 				lastVelocity = Vector2.zero;
-
-				shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
-				storedEnergy = 0;
+				if (storedEnergy != 0) {
+					shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
+					storedEnergy = 0;
+				}
 				body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);
 			}
 		} else {
