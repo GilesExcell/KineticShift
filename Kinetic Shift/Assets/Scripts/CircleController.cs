@@ -2,27 +2,24 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class CircleController : MonoBehaviour {
 
 	public float maxTorque = 1f;
+	public float maxGroundForce = 1f;
+	public float maxAirForce = 1f;
 	public float jumpForce = 5f;
 	public float jumpTime = 0.1f;
 	public float drainRate = 0.5f;
-	public Slider energySlider;
+	public float storedEnergy { get; private set; }
+
 	float move;
 	bool grounded = false;
-
-	
-	public Text KEText;
-	int kineticEnergy;
 
 	float jump = 0.0f;
 	Vector2 direction;
 	Rigidbody2D body;
 	float shiftImpulse;
-	public float storedEnergy { get; private set; }
 	Vector2 lastVelocity = Vector2.zero;
 
 
@@ -34,12 +31,7 @@ public class CircleController : MonoBehaviour {
 	void Start () {
 		body = GetComponent<Rigidbody2D> ();
 		playerActions = BallActions.CreateWithDefaultBindings();
-
-		kineticEnergy = 0;
-		SetEnergy();
-
-		setEnergyBar ();
-
+		storedEnergy = 0;
 	}
 	
 	// Update is called once per frame
@@ -53,7 +45,6 @@ public class CircleController : MonoBehaviour {
 		}else{
 			Move (playerActions.Move.Value, playerActions.Shift.IsPressed);
 		}
-		setEnergyBar ();
 	}
 	
 	// Update is called once per frame
@@ -72,11 +63,17 @@ public class CircleController : MonoBehaviour {
 		}
 		currentCollisions = 0;
 
-		if (grounded && jump > 0) {
-			jump = 0.0f;
-			shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
-			storedEnergy = 0;
-			body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);
+		if (grounded) {
+			body.AddForce (move * maxGroundForce * Vector2.left);
+
+			if (jump > 0) {
+				jump = 0.0f;
+				shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
+				storedEnergy = 0;
+				body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);
+			}
+		} else {
+			body.AddForce (move * maxAirForce * Vector2.left);
 		}
 
 		jump -= Time.deltaTime;
@@ -93,35 +90,11 @@ public class CircleController : MonoBehaviour {
 
 	void Move(float x, bool shift) {
 		move = -x;
-		Debug.Log("Move: " + move);
-
-		if (shift) {
-			kineticEnergy -= 10;
-			SetEnergy();
-		} else if (move != 0){
-			kineticEnergy += 1;
-			SetEnergy();
-		}
 	}
 
 	void Brake(){
 		//GetComponent<Rigidbody2D> ().AddTorque (-10);
 
-	}
-
-
-	void Jump(Vector2 direction, bool shift) {
-		if (grounded) {
-			GetComponent<Rigidbody2D> ().AddForce (direction * jumpForce, ForceMode2D.Impulse);
-			
-			if (shift) {
-				kineticEnergy -= 100;
-				SetEnergy ();
-			} else {
-				kineticEnergy += 1;
-			}
-			//SetEnergySlider();
-		}
 	}
 
 	void Jump(Vector2 dir) {
@@ -139,22 +112,4 @@ public class CircleController : MonoBehaviour {
 	void OnCollisionExit2D(){
 		currentCollisions--;
 	}
-
-
-	void SetEnergy (){
-
-		if (kineticEnergy < 0) {
-			kineticEnergy = 0;
-		} else if (kineticEnergy > 1000) {
-			kineticEnergy = 1000;
-		}
-
-		KEText.text = "Kinetic Energy: " + kineticEnergy.ToString ();
-	}
-
-	void setEnergyBar(){
-		energySlider.value = storedEnergy;
-
-	}
-
 }
