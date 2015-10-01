@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.1779604, y: 2.53999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420134}
@@ -119,9 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  highSpeed: 10
-  lowSpeed: 1
   maxDistance: 10
+  gameCamera: {fileID: 0}
+  minSize: 10
+  maxSize: 20
 --- !u!124 &12407502
 Behaviour:
   m_ObjectHideFlags: 1
