@@ -16,6 +16,7 @@ public class CircleController : MonoBehaviour {
 	public float soundVolume;
 	public AudioClip shiftSound;
 	public AudioClip rollingSound;
+	public AudioClip hitSound;
 
 
 	public bool airShift = false;
@@ -56,6 +57,8 @@ public class CircleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+
 		if (body.velocity.sqrMagnitude < lastVelocity.sqrMagnitude) {
 			storedEnergy += body.mass * (lastVelocity.sqrMagnitude - body.velocity.sqrMagnitude) / 2.0f;
 		}
@@ -136,6 +139,10 @@ public class CircleController : MonoBehaviour {
 			direction = dir.normalized;
 
 		}
+	}
+
+	void onCollisionEnter2D(){
+		AudioSource.PlayClipAtPoint (hitSound, transform.position, soundVolume);
 	}
 
 	void OnCollisionStay2D(){
