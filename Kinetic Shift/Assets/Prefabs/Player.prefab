@@ -72,8 +72,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTorque: 1
+  maxGroundForce: 1
+  maxAirForce: 1
   jumpForce: 10
   jumpTime: .100000001
+  drainRate: .5
+  airShift: 0
 --- !u!212 &21296152
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,7 +110,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 113870}
