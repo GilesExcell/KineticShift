@@ -65,9 +65,9 @@ public class CircleController : MonoBehaviour {
 
 
 		body.AddTorque (move * maxTorque);
-		if (body.velocity.sqrMagnitude > 0 && grounded) {
-			AudioSource.PlayClipAtPoint (rollingSound, transform.position, soundVolume);
-		}
+		//if (body.velocity.sqrMagnitude > 0 && grounded) {
+			//AudioSource.PlayClipAtPoint (rollingSound, transform.position, soundVolume);
+		//}
 		if (currentCollisions == 0) {
 			grounded = false;
 		} else {
