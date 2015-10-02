@@ -3,17 +3,15 @@ using System.Collections;
 
 public class LvlSelectController : MonoBehaviour {
 
-	public int LevelToLoad;
-
 	// Returns to the main menu
 	public void Back()
 	{
 		Application.LoadLevel (0);
 	}
 
-	public void LoadLevel()
+	public void LoadLevel(string level)
 	{
-		Application.LoadLevel (LevelToLoad);
+		Application.LoadLevel (level);
 	}
 
 	// Use this for initialization
