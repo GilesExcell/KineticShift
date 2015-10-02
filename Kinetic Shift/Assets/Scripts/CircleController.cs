@@ -13,6 +13,11 @@ public class CircleController : MonoBehaviour {
 	public float drainRate = 0.5f;
 	public float storedEnergy { get; private set; }
 
+	public float soundVolume;
+	public AudioClip shiftSound;
+	public AudioClip rollingSound;
+
+
 	public bool airShift = false;
 
 	float move;
@@ -57,6 +62,9 @@ public class CircleController : MonoBehaviour {
 
 
 		body.AddTorque (move * maxTorque);
+		if (body.velocity.sqrMagnitude > 0) {
+			AudioSource.PlayClipAtPoint (rollingSound, transform.position, soundVolume);
+		}
 		if (currentCollisions == 0) {
 			grounded = false;
 		} else {
@@ -77,6 +85,7 @@ public class CircleController : MonoBehaviour {
 
 				if (storedEnergy != 0) {
 					shiftImpulse = jumpForce + Mathf.Sqrt(storedEnergy);
+					AudioSource.PlayClipAtPoint(shiftSound, transform.position, soundVolume);
 					storedEnergy = 0;
 				}
 				body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);

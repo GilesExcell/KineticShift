@@ -7,6 +7,9 @@ public class PickupController : MonoBehaviour {
 	public GameManager gameManager = null;
 	public bool isGoal;
 
+	public AudioClip pickupSound;
+	public float soundVolume;
+
 	// Use this for initialization
 	void Start () {
 		if (gameManager == null) {
@@ -22,6 +25,7 @@ public class PickupController : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "Player") {
 			gameManager.SendMessage("AddPoints", points);
+			AudioSource.PlayClipAtPoint(pickupSound, transform.position, soundVolume);
 			Destroy(gameObject);
 		}
 
