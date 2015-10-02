@@ -56,6 +56,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 5
   gameManager: {fileID: 0}
+  isGoal: 0
+  pickupSound: {fileID: 8300000, guid: f72880a0386ff584880e77783622f1d8, type: 3}
+  soundVolume: 1
 --- !u!212 &21257396
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,6 +97,14 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 7ae749cce690a3a4e99614baae881d47,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f72880a0386ff584880e77783622f1d8, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundVolume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132740}

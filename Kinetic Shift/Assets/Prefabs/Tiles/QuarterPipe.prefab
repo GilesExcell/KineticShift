@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21226392}
   - 60: {fileID: 6035068}
   m_Layer: 0
-  m_Name: Corner
+  m_Name: QuarterPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

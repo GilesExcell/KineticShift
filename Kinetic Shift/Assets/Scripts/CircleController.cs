@@ -141,8 +141,8 @@ public class CircleController : MonoBehaviour {
 		} 
 	}
 
-	void onCollisionEnter2D(){
-		AudioSource.PlayClipAtPoint (hitSound, transform.position, soundVolume);
+	void OnCollisionEnter2D(Collision2D coll){
+		AudioSource.PlayClipAtPoint (hitSound, transform.position, soundVolume * coll.relativeVelocity.magnitude / 100);
 	}
 
 	void OnCollisionStay2D(){

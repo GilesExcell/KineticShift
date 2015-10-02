@@ -10,10 +10,9 @@ GameObject:
   - 4: {fileID: 469634}
   - 212: {fileID: 21281692}
   - 58: {fileID: 5823354}
-  - 60: {fileID: 6032812}
-  - 252: {fileID: 25298360}
+  - 61: {fileID: 6196666}
   m_Layer: 0
-  m_Name: HalfMoon
+  m_Name: BigRoundedEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.0999985, y: -16.6299992, z: 0}
+  m_LocalPosition: {x: -130.080002, y: -73.0299988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,8 +43,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!60 &6032812
-PolygonCollider2D:
+--- !u!61 &6196666
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -54,39 +53,9 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: 1.94000006, y: .579999983}
-      - {x: 1.86000001, y: .779999971}
-      - {x: 1.76999998, y: .970000029}
-      - {x: 1.70000005, y: 1.09000003}
-      - {x: 1.61000001, y: 1.22000003}
-      - {x: 1.52999997, y: 1.33000004}
-      - {x: 1.25999999, y: 1.58000004}
-      - {x: 1.15999997, y: 1.64999998}
-      - {x: 1.02999997, y: 1.74000001}
-      - {x: .810000002, y: 1.85000002}
-      - {x: .600000024, y: 1.92999995}
-      - {x: .49000001, y: 1.96000004}
-      - {x: .330000013, y: 2}
-      - {x: -.340000004, y: 2}
-      - {x: -.430000007, y: 1.98000002}
-      - {x: -.540000021, y: 1.95000005}
-      - {x: -.75, y: 1.88}
-      - {x: -.99000001, y: 1.76999998}
-      - {x: -1.17999995, y: 1.64999998}
-      - {x: -1.26999998, y: 1.58000004}
-      - {x: -1.52999997, y: 1.33000004}
-      - {x: -1.62, y: 1.22000003}
-      - {x: -1.74000001, y: 1.03999996}
-      - {x: -1.86000001, y: .829999983}
-      - {x: -1.96000004, y: .550000012}
-      - {x: -2, y: .319999993}
-      - {x: -2, y: -2}
-      - {x: 2, y: -2}
-      - {x: 2, y: .219999999}
-      - {x: 1.99000001, y: .300000012}
+  m_Offset: {x: 0, y: -1}
+  serializedVersion: 2
+  m_Size: {x: 4, y: 2}
 --- !u!212 &21281692
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -113,23 +82,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c48ce83532e0e1d44be6a8840e76b302, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!252 &25298360
-SurfaceEffector2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191816}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Speed: 5
-  m_SpeedVariation: .100000001
-  m_ForceScale: 1
-  m_UseContactForce: 0
-  m_UseFriction: 0
-  m_UseBounce: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
