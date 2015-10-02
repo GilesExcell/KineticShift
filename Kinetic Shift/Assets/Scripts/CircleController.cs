@@ -65,7 +65,7 @@ public class CircleController : MonoBehaviour {
 
 
 		body.AddTorque (move * maxTorque);
-		if (body.velocity.sqrMagnitude > 0) {
+		if (body.velocity.sqrMagnitude > 0 && grounded) {
 			AudioSource.PlayClipAtPoint (rollingSound, transform.position, soundVolume);
 		}
 		if (currentCollisions == 0) {
@@ -138,7 +138,7 @@ public class CircleController : MonoBehaviour {
 			jump = jumpTime;
 			direction = dir.normalized;
 
-		}
+		} 
 	}
 
 	void onCollisionEnter2D(){
