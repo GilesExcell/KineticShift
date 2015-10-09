@@ -11,7 +11,7 @@ public class CircleController : MonoBehaviour {
 	public float jumpForce = 5f;
 	public float jumpTime = 0.1f;
 	public float drainRate = 0.5f;
-	public float storedEnergy { get; private set; }
+	public float storedEnergy;
 
 	public float soundVolume;
 	public AudioClip shiftSound;
