@@ -24,7 +24,7 @@ public class MenuController : MonoBehaviour {
 
 	public void LevelSelect()
 	{
-		Application.LoadLevel (1);
+		Application.LoadLevel ("LevelSelect");
 	}
 
 	public void ExitGame()
