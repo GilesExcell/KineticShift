@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PickupController : MonoBehaviour {
@@ -10,11 +11,21 @@ public class PickupController : MonoBehaviour {
 	public AudioClip pickupSound;
 	public float soundVolume;
 
+	public Canvas lvlCompScreen;
+	public Button levelSelect;
+
+
 	// Use this for initialization
 	void Start () {
 		if (gameManager == null) {
 			gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		}
+		// Load level complete screen items
+		lvlCompScreen = lvlCompScreen.GetComponent<Canvas> ();
+		levelSelect = levelSelect.GetComponent<Button> ();
+		// Hide them
+		lvlCompScreen.enabled = false;
+		levelSelect.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +42,12 @@ public class PickupController : MonoBehaviour {
 
 		if (isGoal){
 			//yield WaitForSeconds(1);
-			Application.LoadLevel(1);
+			//Application.LoadLevel(1);
+
+			// Display level complete screen
+			lvlCompScreen.enabled = true;
+			levelSelect.enabled = true;
+
 		}
 	}
 }
