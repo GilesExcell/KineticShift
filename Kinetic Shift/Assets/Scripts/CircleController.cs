@@ -44,7 +44,7 @@ public class CircleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		direction = playerActions.JumpDirection.normalized;
+		direction = playerActions.JumpDirection.Value.normalized;
 
 		if (playerActions.Jump.WasPressed)
 		{
