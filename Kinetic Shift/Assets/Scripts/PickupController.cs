@@ -13,6 +13,8 @@ public class PickupController : MonoBehaviour {
 
 	public Canvas lvlCompScreen;
 	public Button levelSelect;
+	//public int score = GameManager.score.get ();
+	public Text scoreText;
 
 
 	// Use this for initialization
@@ -47,7 +49,7 @@ public class PickupController : MonoBehaviour {
 			// Display level complete screen
 			lvlCompScreen.enabled = true;
 			levelSelect.enabled = true;
-
+			//scoreText.text = score.ToString() + " Points";
 		}
 	}
 }
