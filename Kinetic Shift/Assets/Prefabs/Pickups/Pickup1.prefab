@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.91866159, y: -.911657691, z: 0}
+  m_LocalPosition: {x: -24.1794453, y: -10.7038231, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   isGoal: 0
   pickupSound: {fileID: 8300000, guid: f72880a0386ff584880e77783622f1d8, type: 3}
   soundVolume: 1
+  pickUpParticle: {fileID: 121942, guid: 32df15aeb352ffb48a14fa0b2bd888d3, type: 2}
 --- !u!212 &21222832
 SpriteRenderer:
   m_ObjectHideFlags: 1
