@@ -600,6 +600,18 @@ Prefab:
       propertyPath: m_ForceMagnitude
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 434558, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e9b047892db4264588a76450582c15b, type: 2}
   m_IsPrefabParent: 0
@@ -27039,7 +27051,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22449852, guid: d285b293c68d4494bb2f7d459d1212a3, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d285b293c68d4494bb2f7d459d1212a3, type: 2}
