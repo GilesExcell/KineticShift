@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.33782768, y: -.877490878, z: 0}
+  m_LocalPosition: {x: -29.7932529, y: -29.2724438, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   isGoal: 0
   pickupSound: {fileID: 8300000, guid: f72880a0386ff584880e77783622f1d8, type: 3}
   soundVolume: 1
+  pickUpParticle: {fileID: 176294, guid: d3dca6c15239c8c42b862b71a482372b, type: 2}
 --- !u!212 &21222488
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -105,6 +106,10 @@ Prefab:
       propertyPath: soundVolume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pickUpParticle
+      value: 
+      objectReference: {fileID: 176294, guid: d3dca6c15239c8c42b862b71a482372b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108710}
