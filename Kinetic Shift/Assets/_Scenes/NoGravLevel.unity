@@ -11944,6 +11944,14 @@ Prefab:
       propertyPath: m_ForceAngle
       value: 260
       objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: -1.70000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: -9.80000019
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e9b047892db4264588a76450582c15b, type: 2}
   m_IsPrefabParent: 0
@@ -20292,6 +20300,14 @@ Prefab:
       propertyPath: m_ForceAngle
       value: 359.999908
       objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e9b047892db4264588a76450582c15b, type: 2}
   m_IsPrefabParent: 0
@@ -27151,6 +27167,14 @@ Prefab:
     - target: {fileID: 24981090, guid: 2e9b047892db4264588a76450582c15b, type: 2}
       propertyPath: m_ForceAngle
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e9b047892db4264588a76450582c15b, type: 2}
@@ -36537,6 +36561,14 @@ Prefab:
     - target: {fileID: 24981090, guid: 2e9b047892db4264588a76450582c15b, type: 2}
       propertyPath: m_ForceAngle
       value: 359.999908
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19811138, guid: 2e9b047892db4264588a76450582c15b, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e9b047892db4264588a76450582c15b, type: 2}

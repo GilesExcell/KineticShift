@@ -44,6 +44,8 @@ public class CircleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		direction = playerActions.JumpDirection.Value.normalized;
+
 		if (playerActions.Jump.WasPressed)
 		{
 			Jump(playerActions.JumpDirection.Value);
@@ -94,7 +96,11 @@ public class CircleController : MonoBehaviour {
 				body.AddForce(direction * shiftImpulse, ForceMode2D.Impulse);
 			}
 		} else {
-			body.AddForce (move * maxAirForce * Vector2.left);
+			if (airShift) {
+				body.AddForce (direction * maxAirForce);
+			} else {
+				body.AddForce (move * maxAirForce * Vector2.left);
+			}
 
 			if (airShift && jump > 0) {
 					jump = 0.0f;

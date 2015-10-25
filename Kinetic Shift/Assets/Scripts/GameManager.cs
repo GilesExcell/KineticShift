@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
 	private CircleController playerController;
 	public Text scoreText;
 	public Slider energySlider;
+	
+	public Canvas lvlCompScreen;
+	public bool lvlEnd; // Player completed level
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +23,9 @@ public class GameManager : MonoBehaviour {
 		}
 		playerController = player.GetComponent<CircleController>();
 
+		lvlCompScreen.enabled = false;
+		lvlEnd = false;
+
 		UpdateKESlider();
 		UpdateScoreText();
 	}
@@ -29,6 +35,11 @@ public class GameManager : MonoBehaviour {
 		currentTime += Time.deltaTime;
 
 		UpdateKESlider();
+
+		if (lvlEnd)
+		{
+			lvlCompScreen.enabled = true;
+		}
 	}
 
 	// Add points to the player's score
@@ -47,6 +58,7 @@ public class GameManager : MonoBehaviour {
 		UpdateScoreText ();
 	}
 
+	// Update the value of the kinetic energy slider
 	void UpdateKESlider() {
 		energySlider.value = playerController.storedEnergy;
 	}

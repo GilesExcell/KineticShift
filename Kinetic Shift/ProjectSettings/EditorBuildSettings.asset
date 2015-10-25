@@ -9,19 +9,25 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/_Scenes/LevelSelect.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/TestBed.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/TestLevel.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/TestLevel2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/level1.4.unity
   - enabled: 1
-    path: Assets/_Scenes/Level2.0.unity
+    path: Assets/_Scenes/csilla2.unity
+  - enabled: 1
+    path: Assets/_Scenes/LevelCsilla.unity
   - enabled: 1
     path: Assets/_Scenes/Giles-1.unity
   - enabled: 1
-    path: Assets/_Scenes/LevelCsilla.unity
+    path: Assets/_Scenes/John.unity
+  - enabled: 1
+    path: Assets/_Scenes/Level2.0.unity
+  - enabled: 1
+    path: Assets/_Scenes/NewLevel.unity
   - enabled: 1
     path: Assets/_Scenes/NoGravLevel.unity

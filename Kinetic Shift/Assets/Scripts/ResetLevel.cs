@@ -12,8 +12,10 @@ public class ResetLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		InputDevice device = InputManager.ActiveDevice;
-		if (device.MenuWasPressed) {
+		if (device.Action2.WasPressed || Input.GetKeyDown(KeyCode.R)) {
 			Application.LoadLevel (Application.loadedLevelName);
+		} if (device.MenuWasPressed || Input.GetKeyDown(KeyCode.Escape)) {
+			Application.LoadLevel ("LevelSelect");
 		}
 	}
 }
