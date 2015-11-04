@@ -106,6 +106,10 @@ Prefab:
       propertyPath: soundVolume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pickUpParticle
+      value: 
+      objectReference: {fileID: 121942, guid: 32df15aeb352ffb48a14fa0b2bd888d3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133674}
